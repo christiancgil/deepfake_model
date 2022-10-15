@@ -1,4 +1,4 @@
-# GPT-3 Model Card
+# Generar Deepfake con Faceswap
 
 Last updated: Octubre 2022
 
@@ -63,15 +63,46 @@ La mayoría de los modelos se componen en gran parte de 2 partes:
 
 La red necesita saber qué tan bien está codificando y decodificando rostros. Utiliza 2 herramientas principales para hacer esto:
 
-- Pérdida: por cada lote de caras ingresadas en el modelo, la NN observará la cara que ha intentado recrear mediante su algoritmo de codificación y decodificación actual y la comparará con la cara real que se introdujo. lo ha hecho, se otorgará a sí mismo una puntuación (el valor de pérdida) y actualizará sus ponderaciones en consecuencia.
+- Pérdida: Por cada lote de caras ingresadas en el modelo, la red observará la cara que ha intentado recrear mediante su algoritmo de codificación y decodificación actual y la comparará con la cara real que se introdujo. Basado en lo bien que lo hizo otorgará a sí mismo una puntuación (el valor de pérdida) y actualizará sus ponderaciones en consecuencia.
 
-- Pesos: una vez que el modelo ha evaluado qué tan bien ha recreado una cara, actualiza sus pesos. Estos alimentan los algoritmos del codificador/descodificador. Si ha ajustado sus pesos en una dirección, pero siente que ha hecho un peor trabajo de reconstrucción de la cara que antes, entonces sabe que los pesos se están moviendo en la dirección equivocada, por lo que los ajustará en la otra dirección. Si siente que ha mejorado, entonces sabe que debe seguir ajustando los pesos en la dirección en la que va.
+- Pesos: Una vez que el modelo ha evaluado qué tan bien ha recreado una cara, actualiza sus pesos. Estos alimentan los algoritmos del codificador/descodificador. Si ha ajustado sus pesos en una dirección, pero siente que ha hecho un peor trabajo de reconstrucción de la cara que antes, entonces sabe que los pesos se están moviendo en la dirección equivocada, por lo que los ajustará en la otra dirección. Si siente que ha mejorado, entonces sabe que debe seguir ajustando los pesos en la dirección en la que va.
+
+![perdida](https://forum.faceswap.dev/download/file.php?id=139)
+
+Luego, el modelo repite esta acción muchas, muchas veces, actualizando constantemente sus pesos en función de sus valores de pérdida, mejorando teóricamente con el tiempo, hasta que llega a un punto en el que siente que ha aprendido lo suficiente como para recrear una cara de manera efectiva, o los valores de pérdida dejan de caer.
+
+Para reconstruir la cara se hace lo siguiente:
+- Compartir el codificador para el conjunto A y B. De esta forma, nuestro codificador está aprendiendo un solo algoritmo para 2 personas diferentes.
+- Cuando se trata de intercambiar finalmente las caras, cambian los decodificadores, por lo tanto se alimenta el modelo de la Cara A, pero páselo a través del decodificador B
+
+![decodificador](https://forum.faceswap.dev/download/file.php?id=141)
+
+
+### Creación Video Deepfake
+
+Una vez que se entrena el modelo, se puede crear un deepfake. A partir de un video, se extraen fotogramas y se alinean todas las caras. Luego, cada cuadro se convierte utilizando la red neuronal entrenada. El paso final es fusionar la cara convertida de nuevo al marco original.
+
+![convert1](https://drive.google.com/uc?id=17l_Q1w3mDqmqfmBDDVOVA4PkYs2UwSAK)
+
+El proceso de creación no utiliza ningún algoritmo de aprendizaje automático. El proceso consiste en volver a pegar una cara en una imagen que está codificado y, por lo tanto, carece de la capacidad de detectar errores.
+
+![fusion](https://drive.google.com/uc?id=1asptwgEiDOWxclpsQgwQf2bb5w6qKPDy)
+
+
+## Datos Entrenamiento
+Para la extración de las caras se usaron 2 videos con rostos de Tony Stark y Elon Musk, los videos se encuentran disponibles en:
+
+[Repositorio Videos Extracción](https://github.com/christiancgil/DFLWorkspace)
+
+## Extración de Caras
+Después de realizar el proceso de extración, se obtuvo:
+- Video Stark - 654 Caras
+- Video Musk - 1467 Caras
+
 
 
 ### Model version
 175 billion parameter model
-
-
 
 ### Model version
 175 billion parameter model
