@@ -46,11 +46,31 @@ El perfilamiento es un paso crítico ya que la red neuronal que realiza el inter
 El proceso de perfilamiento extrae toda información sobre todas las caras que encuentra en cada cuadro, específicamente dónde está la cara:
 ![Perfilamiento](https://miro.medium.com/max/828/1*96UT-D8uSXjlnyvs9DZTog.png)
 
+
 ### Entrenamiento
 
-El proceso de entrenamiento permite que la red neuronal convierta una cara en otra. El entrenamiento puede durar varias horas o incluso días, según el tamaño del conjunto de entrenamiento y el dispositivo en el que se entrena el modelo. Al igual que el entrenamiento de la mayoría de las otras redes neuronales, el entrenamiento solo debe completarse una vez. Una vez que el modelo esté entrenado, podrá convertir una cara de la persona A a la persona B.
+El proceso de entrenamiento permite que la red neuronal convierta una cara en otra. El entrenamiento puede durar varias horas o incluso días, según el tamaño del conjunto de entrenamiento y el dispositivo en el que se entrena el modelo. Al igual que el entrenamiento de la mayoría de las otras redes neuronales, el entrenamiento solo debe completarse una vez. Una vez que el modelo esté entrenado, podrá convertir una cara de la persona A la B.
 
-![caras](https://drive.google.com/file/d/1kvYjyS2C0QQMTRNXfXJ7HIOpfY72lLhE/view?usp=sharing)
+![trainface](https://drive.google.com/uc?id=1VekvM6foF0Xjzk4LP7uCV5hGlVYUj5Zs)
+
+La mayoría de los modelos se componen en gran parte de 2 partes:
+
+- Codificador: Tiene la función de tomar un montón de rostros como entrada y "codificarlos" en una representación en forma de "vector". Es importante tener en cuenta que no está aprendiendo una representación exacta de cada rostro que ingresa, sino que está tratando de crear un algoritmo que pueda usarse para reconstruir rostros más tarde lo más cerca posible de las imágenes de entrada.
+
+- Decodificador: Tiene el trabajo de tomar los vectores creados por el codificador e intentar convertir esta representación nuevamente en caras, lo más cerca posible de las imágenes de entrada.
+ 
+![train](https://forum.faceswap.dev/download/file.php?id=138)
+
+La red necesita saber qué tan bien está codificando y decodificando rostros. Utiliza 2 herramientas principales para hacer esto:
+
+- Pérdida: por cada lote de caras ingresadas en el modelo, la NN observará la cara que ha intentado recrear mediante su algoritmo de codificación y decodificación actual y la comparará con la cara real que se introdujo. lo ha hecho, se otorgará a sí mismo una puntuación (el valor de pérdida) y actualizará sus ponderaciones en consecuencia.
+
+- Pesos: una vez que el modelo ha evaluado qué tan bien ha recreado una cara, actualiza sus pesos. Estos alimentan los algoritmos del codificador/descodificador. Si ha ajustado sus pesos en una dirección, pero siente que ha hecho un peor trabajo de reconstrucción de la cara que antes, entonces sabe que los pesos se están moviendo en la dirección equivocada, por lo que los ajustará en la otra dirección. Si siente que ha mejorado, entonces sabe que debe seguir ajustando los pesos en la dirección en la que va.
+
+
+### Model version
+175 billion parameter model
+
 
 
 ### Model version
