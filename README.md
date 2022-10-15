@@ -99,6 +99,32 @@ Después de realizar el proceso de extración, se obtuvo:
 - Video Stark - 654 Caras
 - Video Musk - 1467 Caras
 
+## Entrenamiento del Modelo
+El proceso de entrenamiento se realizó con las siguientes condiciones :
+- [Algoritmo Original](https://github.com/deepfakes/faceswap/blob/master/plugins/train/model/original.py)
+- 20 horas de Entrenamiento
+- 240.000 repeticiones
+
+## Resultados del Entrenamiento
+Tras las 20 horas de entrenamiento se identificaron los siguientes resultados:
+- Una perdida de 0.01920 para la cara de Tony Stark
+- Una perdida de 0.00708 para la cara de Elon Musk
+
+## Generación de Deepfake con faceswap en Colab
+### Demostración
+Por medio de este archivo se puede generar el video deepfake usando el modelo ya entrenado
+
+[Faceswap Demo Deepfake](https://colab.research.google.com/drive/1axquw4TSbWnpMscUUmmk-tQcgo17rl-x?usp=sharing)
+
+### Mediante Entrenamiento del Modelo
+Por medio de este archivo se puede generar el video deepfake usando los modulos de faceswap para entrenar el modelo
+
+[Faceswap Demo Deepfake](https://colab.research.google.com/drive/102ET6rsimMa-5QcCpetZNtU1aFlDftxf?usp=sharing)
+
+### Video Deepfake Generado
+El video resultante del proceso se puede descargar del siguiente enlace:
+
+[Swapface Entrenamiento Deepfake](https://drive.google.com/file/d/1f-b6Yvq2-XGPJYhLTwnGg2bYKjXqBK39/view?usp=sharing)
 
 
 ### Model version
