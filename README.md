@@ -119,13 +119,12 @@ Por medio de este archivo se puede generar el video deepfake usando el modelo ya
 ### Mediante Entrenamiento del Modelo
 Por medio de este archivo se puede generar el video deepfake usando los modulos de faceswap para entrenar el modelo
 
-[Faceswap Demo Deepfake](https://colab.research.google.com/drive/102ET6rsimMa-5QcCpetZNtU1aFlDftxf?usp=sharing)
+[Faceswap Entrenamiento Deepfake](https://colab.research.google.com/drive/102ET6rsimMa-5QcCpetZNtU1aFlDftxf?usp=sharing)
 
 ### Video Deepfake Generado
 El video resultante del proceso se puede descargar del siguiente enlace:
 
-[Swapface Entrenamiento Deepfake](https://drive.google.com/file/d/1f-b6Yvq2-XGPJYhLTwnGg2bYKjXqBK39/view?usp=sharing)
-
+[facewap Video Deepfake](https://drive.google.com/file/d/1f-b6Yvq2-XGPJYhLTwnGg2bYKjXqBK39/view?usp=sharing)
 
 ### Model version
 175 billion parameter model
