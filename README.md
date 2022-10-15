@@ -126,6 +126,9 @@ El video resultante del proceso se puede descargar del siguiente enlace:
 
 [facewap Video Deepfake](https://drive.google.com/file/d/1f-b6Yvq2-XGPJYhLTwnGg2bYKjXqBK39/view?usp=sharing)
 
+## Generación del Model Card para Modelo Faceswap
+[Model Card](https://colab.research.google.com/drive/1fOiEoYVYQSJ9RL9tEDCxrUqO75t89jI8?usp=sharing)
+
 ### Model version
 175 billion parameter model
 
